@@ -15,13 +15,14 @@ var DAT = DAT || {};
 
 DAT.Globe = function(container, opts) {
   opts = opts || {};
-  
+
   var colorFn = opts.colorFn || function(x) {
     var c = new THREE.Color();
-    c.setHSL( ( 0.6 - ( x * 0.5 ) ), 1.0, 0.5 );
+    // c.setHSL( ( 0.6 - ( x * 0.5 ) ), 1.0, 0.5 );
+    c.setRGB( x, 255, x);
     return c;
   };
-  var imgDir = opts.imgDir || '/globe/';
+  var imgDir = opts.imgDir || '../globe/';
 
   var Shaders = {
     'earth' : {
@@ -104,7 +105,7 @@ DAT.Globe = function(container, opts) {
     shader = Shaders['earth'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'world.jpg');
+    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'world.png');
 
     material = new THREE.ShaderMaterial({
 
@@ -352,7 +353,9 @@ DAT.Globe = function(container, opts) {
   function render() {
     zoom(curZoomSpeed);
 
-    rotation.x += (target.x - rotation.x) * 0.1;
+    //rotation.x += (target.x - rotation.x) * 0.1;
+    //shawn - autorotate
+    rotation.x -= 0.001;
     rotation.y += (target.y - rotation.y) * 0.1;
     distance += (distanceTarget - distance) * 0.3;
 
