@@ -18,7 +18,7 @@ DAT.Globe = function(container, opts) {
 
   var colorFn = opts.colorFn || function(x) {
     var c = new THREE.Color();
-     c.setHSL( ( (0 + ( x * 0.99 ) % 1) ), 1.0, 0.5 + ( x * 0.35 ) );
+     c.setHSL( ( x * 0.99 ) % 1 , 1.0, 0.5 );
     // green
     //c.setRGB(0.5 + x * 0.5, 0.83 + x * 0.17, 0.25 + x * 0.75);
     console.log("x = " + x);
@@ -211,7 +211,7 @@ DAT.Globe = function(container, opts) {
       color = colorFnWrapper(data,i);
       //size = data[i + 2];
       //shawn - edit to shrink original data, should be fixed in json generator
-      size = data[i + 2] - 0.2;
+      size = data[i + 2] - 0.15;
       size = size*200;
       addPoint(lat, lng, size, color, subgeo);
     }
