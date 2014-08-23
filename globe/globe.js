@@ -18,7 +18,7 @@ DAT.Globe = function(container, opts) {
 
   var colorFn = opts.colorFn || function(x) {
     var c = new THREE.Color();
-     c.setHSL( ( 0.8 - ( x * 0.7 ) ), 1.0, 0.5 + ( x * 0.25 ) );
+     c.setHSL( ( 0.99 - ( x * 0.9 ) ), 1.0, 0.5 + ( x * 0.35 ) );
     // green
     //c.setRGB(0.5 + x * 0.5, 0.83 + x * 0.17, 0.25 + x * 0.75);
     console.log("x = " + x);
