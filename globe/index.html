@@ -135,7 +135,7 @@
       Detector.addGetWebGLMessage();
     } else {
 
-      var months = ['July', 'June'];
+      var months = ['July', 'June', 'May'];
       var myYear = 2014;
       var container = document.getElementById('container');
       var globe = new DAT.Globe(container);
@@ -145,7 +145,7 @@
 
       var settime = function(globe, t) {
         return function() {
-          new TWEEN.Tween(globe).to({time: t/months.length}, 2000).easing(TWEEN.Easing.Cubic.EaseOut).start();
+          new TWEEN.Tween(globe).to({time: t/months.length}, 3000).easing(TWEEN.Easing.Cubic.EaseOut).start();
           var y = document.getElementById(months[t].toLowerCase() + myYear);
           if (y.getAttribute('class') === 'month active') {
             return;
