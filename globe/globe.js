@@ -211,7 +211,7 @@ DAT.Globe = function(container, opts) {
       color = colorFnWrapper(data,i);
       //size = data[i + 2];
       //shawn - edit to shrink original data, should be fixed in json generator
-      size = data[i + 2] - 0.15;
+      size = data[i + 2] - 0.2;
       size = size*200;
       addPoint(lat, lng, size, color, subgeo);
     }
