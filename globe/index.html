@@ -142,7 +142,7 @@
 
       var settime = function(globe, t) {
         return function() {
-          new TWEEN.Tween(globe).to({time: t/months.length}, 500).easing(TWEEN.Easing.Cubic.EaseOut).start();
+          new TWEEN.Tween(globe).to({time: t/months.length}, 2000).easing(TWEEN.Easing.Cubic.EaseOut).start();
           var y = document.getElementById(months[t].toLowerCase() + myYear);
           if (y.getAttribute('class') === 'month active') {
             return;
@@ -166,14 +166,13 @@
 
       xhr = new XMLHttpRequest();
 //      xhr.open('GET', 'population909500.json', true);
-//      xhr.open('GET', 'analytics2013.json', true);
       xhr.open('GET', 'analytics-and-mapquest-v6--july2014.json', true);
       xhr.onreadystatechange = function(e) {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
             var data = JSON.parse(xhr.responseText);
             window.data = data;
-            for (i=0;i<data.length;i++) {
+            for (i = 0; i < data.length; i++) {
               globe.addData(data[i][1], {format: 'magnitude', name: data[i][0], animated: true});
             }
             globe.createPoints();
