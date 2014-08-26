@@ -26,16 +26,15 @@
         border-radius: 3px;
         right: 10px;
         padding: 10px;
-
       }
 
       #currentInfo {
         width: 270px;
         position: absolute;
         left: 20px;
-        top: 63px;
+        top: 70px;
 
-        background-color: rgba(0,0,0,0.2);
+        background-color: rgba(0, 0, 0, 0.2);
         padding: 10px;
       }
 
@@ -56,7 +55,7 @@
         position: absolute;
         top: 20px;
         left: 20px;
-        background-color: rgba(0,0,0,0.2);
+        background-color: rgba(0, 0, 0, 0.2);
         border-radius: 3px;
         font: 24px Helvetica, arial, sans-serif;
         padding: 10px;
@@ -168,7 +167,8 @@
 
       xhr = new XMLHttpRequest();
 //      xhr.open('GET', 'population909500.json', true);
-      xhr.open('GET', 'analytics-and-mapquest-v6--july2014.json', true);
+      //xhr.open('GET', 'analytics-and-mapquest-v6--july2014.json', true);
+      xhr.open('GET', 'testset-v6-unmatched.json', true);
       xhr.onreadystatechange = function(e) {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
