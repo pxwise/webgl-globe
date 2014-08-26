@@ -58,7 +58,7 @@
       #title {
         position: absolute;
         top: 20px;
-        width: 270px;
+        width: 360px;
         left: 20px;
         background-color: rgba(0,0,0,0.2);
         border-radius: 3px;
@@ -68,12 +68,12 @@
 
       .month {
         width: 200px;
+        height: 40px;
+        padding: 4px 20px;
         font: 16px Helvetica, arial, sans-serif;
         line-height: 26px;
-        height: 30px;
         text-align: center;
         float: left;
-        width: 90px;
         color: rgba(255, 255, 255, 0.4);
         clear: left;
         white-space: nowrap;
@@ -86,7 +86,7 @@
       .month.active {
         font-size: 23px;
         color: #fff;
-        /*background-color: rgba(51, 165, 68, 0.25);*/
+        background-color: rgba(51, 165, 68, 0.25);
       }
 
       #ce span {
@@ -161,12 +161,11 @@
 
       for(var i = 0; i < months.length; i++) {
         var y = document.getElementById(months[i].toLowerCase() + myYear);
-        y.addEventListener('mouseover', settime(globe,i), false);
+        y.addEventListener('mouseover', settime(globe, i), false);
       }
 
       var xhr;
       TWEEN.start();
-
 
       xhr = new XMLHttpRequest();
 //      xhr.open('GET', 'population909500.json', true);
@@ -180,7 +179,7 @@
               globe.addData(data[i][1], {format: 'magnitude', name: data[i][0], animated: true});
             }
             globe.createPoints();
-            settime(globe,0)();
+            settime(globe, 0)();
             globe.animate();
             document.body.style.backgroundImage = "url('stars-background.gif')";
             document.body.style.backgroundRepeat = "repeat";
