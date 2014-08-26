@@ -66,7 +66,7 @@
         padding: 10px;
       }
 
-      .year {
+      .month {
         font: 16px Helvetica, arial, sans-serif;
         line-height: 26px;
         height: 30px;
@@ -79,7 +79,7 @@
         -webkit-transition: all 0.1s ease-out;
       }
 
-      .year:hover, .year.active {
+      .month:hover, .month.active {
         font-size: 23px;
         color: #fff;
       }
@@ -110,8 +110,8 @@
   </div>
 
   <div id="currentInfo">
-    <span id="year1990" class="year">July 2014</span>
-    <span id="year1995" class="year">June 2014</span>
+    <span id="july2014" class="month">July 2014</span>
+    <span id="june2014" class="month">June 2014</span>
   </div>
 
   <div id="title">
@@ -132,7 +132,8 @@
       Detector.addGetWebGLMessage();
     } else {
 
-      var years = ['July', 'June'];
+      var months = ['July', 'June'];
+      var myYear = 2014;
       var container = document.getElementById('container');
       var globe = new DAT.Globe(container);
 
@@ -141,21 +142,21 @@
 
       var settime = function(globe, t) {
         return function() {
-          new TWEEN.Tween(globe).to({time: t/years.length},500).easing(TWEEN.Easing.Cubic.EaseOut).start();
-          var y = document.getElementById('year'+years[t]);
-          if (y.getAttribute('class') === 'year active') {
+          new TWEEN.Tween(globe).to({time: t/months.length}, 500).easing(TWEEN.Easing.Cubic.EaseOut).start();
+          var y = document.getElementById(months[t].toLowerCase() + myYear);
+          if (y.getAttribute('class') === 'month active') {
             return;
           }
-          var yy = document.getElementsByClassName('year');
-          for(i=0; i<yy.length; i++) {
-            yy[i].setAttribute('class','year');
+          var yy = document.getElementsByClassName('month');
+          for(i = 0; i < yy.length; i++) {
+            yy[i].setAttribute('class', 'month');
           }
-          y.setAttribute('class', 'year active');
+          y.setAttribute('class', 'month active');
         };
       };
 
-      for(var i = 0; i<years.length; i++) {
-        var y = document.getElementById('year'+years[i]);
+      for(var i = 0; i < months.length; i++) {
+        var y = document.getElementById(months[t].toLowerCase() + myYear);
         y.addEventListener('mouseover', settime(globe,i), false);
       }
 
