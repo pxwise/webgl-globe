@@ -121,9 +121,9 @@
 
   <div id="currentInfo">
     <div id="august2014" class="month">August 2014</div><br />
-    <div id="july2014" class="month">July 2014</div><br />
+<!--     <div id="july2014" class="month">July 2014</div><br />
     <div id="june2014" class="month">June 2014</div><br />
-    <div id="may2014" class="month">May 2014</div><br />
+    <div id="may2014" class="month">May 2014</div><br /> -->
   </div>
 
   <div id="title">
@@ -146,7 +146,8 @@
       Detector.addGetWebGLMessage();
     } else {
 
-      var months = ['August', 'July', 'June', 'May'];
+      // var months = ['August', 'July', 'June', 'May'];
+      var months = ['August'];
       var myYear = 2014;
       var container = document.getElementById('container');
       var globe = new DAT.Globe(container);
@@ -180,7 +181,7 @@
       xhr = new XMLHttpRequest();
 //      xhr.open('GET', 'population909500.json', true);
       //xhr.open('GET', 'analytics-and-mapquest-v6--july2014.json', true);
-      xhr.open('GET', 'fixedmap-v8-02.json', true);
+      xhr.open('GET', 'analytics-and-mapquest-v8-august.json', true);
       xhr.onreadystatechange = function(e) {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
