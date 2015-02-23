@@ -107,7 +107,7 @@ DAT.Globe = function(container, opts) {
     shader = Shaders['earth'];
     uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir+'world4.jpg');
+    uniforms['texture'].value = THREE.ImageUtils.loadTexture(imgDir + 'world4.jpg');
 
     material = new THREE.ShaderMaterial({
 
@@ -232,11 +232,11 @@ DAT.Globe = function(container, opts) {
       } else {
         if (this._baseGeometry.morphTargets.length < 8) {
           console.log('t l',this._baseGeometry.morphTargets.length);
-          var padding = 8-this._baseGeometry.morphTargets.length;
+          var padding = 8 - this._baseGeometry.morphTargets.length;
           console.log('padding', padding);
-          for(var i=0; i<=padding; i++) {
-            console.log('padding',i);
-            this._baseGeometry.morphTargets.push({'name': 'morphPadding'+i, vertices: this._baseGeometry.vertices});
+          for(var i = 0; i <= padding; i++) {
+            console.log('padding', i);
+            this._baseGeometry.morphTargets.push({'name': 'morphPadding' + i, vertices: this._baseGeometry.vertices});
           }
         }
         this.points = new THREE.Mesh(this._baseGeometry, new THREE.MeshBasicMaterial({
@@ -387,10 +387,10 @@ DAT.Globe = function(container, opts) {
       }
     }
     validMorphs.sort();
-    var l = validMorphs.length-1;
-    var scaledt = t*l+1;
+    var l = validMorphs.length - 1;
+    var scaledt = t * l + 1;
     var index = Math.floor(scaledt);
-    for (i=0;i<validMorphs.length;i++) {
+    for (i = 0; i < validMorphs.length; i++) {
       this.points.morphTargetInfluences[validMorphs[i]] = 0;
     }
     var lastIndex = index - 1;
